@@ -1,10 +1,11 @@
 import React, {Component} from "react";
+import BASE_URL from "../Const";
 
 class Film extends Component {
 
     runFilm = () => {
         // alert("Run film: " + this.props.name)
-        fetch("http://192.168.1.66:8080/run-film", {
+        fetch(BASE_URL + "/run-film", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

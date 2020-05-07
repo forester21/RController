@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import Film from "./Film";
+import BASE_URL from "../Const";
 
 class FilmList extends Component {
 
@@ -8,7 +9,7 @@ class FilmList extends Component {
     };
 
     componentDidMount() {
-        fetch("http://192.168.1.66:8080/films", {method: 'GET'})
+        fetch(BASE_URL + "/films", {method: 'GET'})
             .then(response => response.json())
             .then(films => this.setState(state => state.films = films))
     }

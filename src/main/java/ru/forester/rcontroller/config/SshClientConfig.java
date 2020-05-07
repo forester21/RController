@@ -5,10 +5,12 @@ import net.schmizz.sshj.SSHClient;
 import net.schmizz.sshj.transport.verification.HostKeyVerifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 
 import java.security.PublicKey;
 
 @Configuration
+@Profile("remote")
 public class SshClientConfig {
 
     @Bean

@@ -1,10 +1,11 @@
 import React, {Component} from "react";
+import BASE_URL from "../Const";
 
 class Actions extends Component {
 
     sendAction = (action) => {
         console.log(action);
-        fetch("http://192.168.1.66:8080/action", {
+        fetch(BASE_URL + "/action", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
