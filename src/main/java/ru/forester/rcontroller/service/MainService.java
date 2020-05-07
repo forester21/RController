@@ -20,6 +20,7 @@ public class MainService {
     private CommandExecutor executor;
 
     public List<String> getFilms() {
+        mountSharedIfNeeded();
         return parseFilms(exec(SHOW_FILMS));
     }
 
@@ -37,6 +38,13 @@ public class MainService {
         Thread.sleep(2000);
         exec(START_FILM);
     }
+
+    private void mountSharedIfNeeded(){
+        if (exec(SHOW_SHARED).lines().count() == 0){
+            exec(MOUNT);
+        }
+    }
+
 
     private String escapeCharacters(String str) {
         return str.replace(" ", "\\ ")

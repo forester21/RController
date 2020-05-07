@@ -9,6 +9,8 @@ public class Constants {
 
     public static String FIFO_DIR = "/home/pi/FIFO";
     public static String SHOW_FILMS = "ls /mnt/local_share/MEDIA";
+    public static String SHOW_SHARED = "ls /mnt/local_share/";
+    public static String MOUNT = "mount -t cifs -o user=pi,password=zcbm0000 //192.168.1.66/Shared /mnt/local_share";
     public static String RUN_FILM = "omxplayer -o local /mnt/local_share/MEDIA/%s < " + FIFO_DIR;
 
     public static String OMX_COMMAND = "echo -n %s > " + FIFO_DIR;
