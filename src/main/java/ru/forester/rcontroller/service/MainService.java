@@ -19,6 +19,9 @@ public class MainService {
     @Autowired
     private CommandExecutor executor;
 
+    @Autowired
+    private YeelightService yeelightService;
+
     public List<String> getFilms() {
         mountSharedIfNeeded();
         return parseFilms(exec(SHOW_FILMS));
@@ -34,6 +37,7 @@ public class MainService {
             log.info("Film is running!");
             exec(STOP_FILM);
         }
+        yeelightService.turnOff();
         new Thread(() -> exec(format(RUN_FILM, escapeCharacters(filmName)))).start();
         Thread.sleep(2000);
         exec(START_FILM);
@@ -58,6 +62,9 @@ public class MainService {
             return;
         }
         exec(format(OMX_COMMAND, ACTIONS.get(action)));
+        if ("stop".equals(action)){
+            yeelightService.turnOn();
+        }
     }
 
     private boolean isFilmRunning() {
