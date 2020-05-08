@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import FilmList from "./components/FilmList";
 import Actions from "./components/Actions";
+import Utils from "./components/Utils";
 
 class App extends Component {
 
@@ -13,6 +14,7 @@ class App extends Component {
                       crossOrigin="anonymous"/>
                 <FilmList/>
                 <Actions/>
+                <Utils/>
             </div>
         );
     }
