@@ -35,7 +35,7 @@ public class YeelightService {
             } catch (Exception e) {
                 log.error("ERROR!", e);
             }
-        }, 4, SECONDS);
+        }, 2, SECONDS);
     }
 
     public void turnOff() {

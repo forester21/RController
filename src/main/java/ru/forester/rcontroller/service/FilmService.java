@@ -37,9 +37,9 @@ public class FilmService {
             log.info("Film is running!");
             exec(STOP_FILM);
         }
-        yeelightService.turnOff();
         new Thread(() -> exec(format(RUN_FILM, escapeCharacters(filmName)))).start();
         Thread.sleep(2000);
+        yeelightService.turnOff();
         exec(START_FILM);
     }
 
