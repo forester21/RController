@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import BASE_URL from "../Const";
+import Reboot from "./Reboot";
 
 class Actions extends Component {
 
@@ -66,10 +67,8 @@ class Actions extends Component {
                             onClick={() => this.sendAction('volumeDown')}/>
                         </h1>
                     </div>
-                    <div className="col-6">
-                        <h2 className="d-flex justify-content-center">
-                            RController21
-                        </h2>
+                    <div className="col-6 d-flex justify-content-center">
+                        <Reboot/>
                     </div>
                     <div className="col">
                         <h1 className="d-flex justify-content-end">

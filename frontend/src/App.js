@@ -17,7 +17,6 @@ class App extends Component {
                 <div className="fixed-bottom" style={{'background-color' : 'white'}}>
                     <Actions/>
                 </div>
-                {/*<Utils/>*/}
             </div>
         );
     }
