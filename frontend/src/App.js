@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import './App.css';
 import FilmList from "./components/FilmList";
 import Actions from "./components/Actions";
-import Utils from "./components/Utils";
 
 class App extends Component {
 
@@ -12,9 +11,13 @@ class App extends Component {
                 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
                       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
                       crossOrigin="anonymous"/>
-                <FilmList/>
-                <Actions/>
-                <Utils/>
+                <main style={{'padding-bottom': '200px'}}>
+                    <FilmList/>
+                </main>
+                <div className="fixed-bottom" style={{'background-color' : 'white'}}>
+                    <Actions/>
+                </div>
+                {/*<Utils/>*/}
             </div>
         );
     }
