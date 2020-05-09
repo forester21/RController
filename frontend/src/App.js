@@ -17,6 +17,12 @@ class App extends Component {
                 <div className="fixed-bottom" style={{'background-color' : 'white'}}>
                     <Actions/>
                 </div>
+                <div className="overlay">
+                    <div className="spinner-border text-warning" role="status"
+                         style={{width: '8rem', height: '8rem'}}>
+                        <span className="sr-only">Loading...</span>
+                    </div>
+                </div>
             </div>
         );
     }

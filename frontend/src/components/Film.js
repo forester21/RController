@@ -4,13 +4,16 @@ import BASE_URL from "../Const";
 class Film extends Component {
 
     runFilm = () => {
+        document.getElementsByClassName("overlay")[0].style.display = "block";
         fetch(BASE_URL + "/run-film", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({name: this.props.name}),
-        });
+        })
+            .then(() => document.getElementsByClassName("overlay")[0].style.display = "none");
+
         Array.prototype.forEach.call(document.getElementsByClassName("myfilm"),
             function(el) {
             el.style.backgroundColor = "white";
