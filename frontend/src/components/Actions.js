@@ -74,7 +74,7 @@ class Actions extends Component {
                         <h1 className="d-flex justify-content-end">
                             <img src="https://image.flaticon.com/icons/svg/157/157094.svg" alt="qq"
                                  style={{width: '50px', height: '50px'}}
-                            onClick={() => this.sendAction('volumeDown')}/>
+                            onClick={() => this.sendAction('volumeUp')}/>
                         </h1>
                     </div>
                 </div>

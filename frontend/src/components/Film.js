@@ -26,7 +26,9 @@ class Film extends Component {
             <div>
                 <li id={this.props.name} className="list-group-item myfilm">
                     <p onClick={this.runFilm}>
-                        {this.props.name}
+                        {this.props.name.length > 35 ?
+                            this.props.name.substr(0,35) + "..." :
+                            this.props.name}
                     </p>
                 </li>
             </div>
