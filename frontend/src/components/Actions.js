@@ -68,7 +68,7 @@ class Actions extends Component {
                         </h1>
                     </div>
                     <div className="col-6 d-flex justify-content-center">
-                        <h2 onClick={() => this.sendAction('volumeDown')}>
+                        <h2 onClick={() => this.sendAction('stop')}>
                             RController21
                         </h2>
                     </div>
