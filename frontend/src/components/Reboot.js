@@ -12,9 +12,8 @@ class Reboot extends Component {
     render() {
         return (
             <div>
-                <h2 onClick={() => this.reboot()}>
-                    RController21
-                </h2>
+                <img src="https://image.flaticon.com/icons/svg/157/157100.svg" alt="reboot"
+                     style={{width: '50px', height: '50px'}} onClick={() => this.reboot()}/>
             </div>
         )
     }
