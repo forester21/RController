@@ -8,6 +8,6 @@ import lombok.experimental.Accessors;
 public class MonitoringInfo {
     String usedMemory;
     String cpu;
-    String freeDiskMemoryAbsolute;
-    String freeDiskMemoryPercentage;
+    String freeDiskMemory;
+    String usedDiskMemory;
 }

@@ -7,8 +7,8 @@ class Utils extends Component {
         monitoringInfo : {
             usedMemory : null,
             cpu : null,
-            freeDiskMemoryAbsolute: null,
-            freeDiskMemoryPercentage : null
+            freeDiskMemory: null,
+            usedDiskMemory : null
         }
     };
 
@@ -40,18 +40,26 @@ class Utils extends Component {
                 <div className="row">
                     <div className="col">
                         <div className="d-flex justify-content-center">
-                            <h1>RAM:</h1>
+                            <h2>RAM:</h2>
                         </div>
                         <div className="d-flex justify-content-center">
-                            <h1>{this.getValueOrDefault(this.state.monitoringInfo.usedMemory)}</h1>
+                            <h2>{this.getValueOrDefault(this.state.monitoringInfo.usedMemory)}</h2>
                         </div>
                     </div>
                     <div className="col">
                         <div className="d-flex justify-content-center">
-                            <h1>DISK:</h1>
+                            <h2>DISK:</h2>
                         </div>
                         <div className="d-flex justify-content-center">
-                            <h1>{this.getValueOrDefault(this.state.monitoringInfo.freeDiskMemoryPercentage)}</h1>
+                            <h2>{this.getValueOrDefault(this.state.monitoringInfo.usedDiskMemory)}</h2>
+                        </div>
+                    </div>
+                    <div className="col">
+                        <div className="d-flex justify-content-center">
+                            <h2>AVAIL:</h2>
+                        </div>
+                        <div className="d-flex justify-content-center">
+                            <h2>{this.getValueOrDefault(this.state.monitoringInfo.freeDiskMemory)}</h2>
                         </div>
                     </div>
                 </div>

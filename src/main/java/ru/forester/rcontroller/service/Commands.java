@@ -32,4 +32,5 @@ public interface Commands {
     }};
 
     String FREE_MEM = "free -m";
+    String DISK_MEM = "df -h";
 }

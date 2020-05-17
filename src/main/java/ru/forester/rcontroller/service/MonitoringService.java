@@ -13,6 +13,7 @@ import java.util.Map;
 import static java.lang.Integer.parseInt;
 import static java.util.Arrays.asList;
 import static java.util.stream.Collectors.toList;
+import static ru.forester.rcontroller.service.Commands.DISK_MEM;
 import static ru.forester.rcontroller.service.Commands.FREE_MEM;
 
 @Service
@@ -22,13 +23,20 @@ public class MonitoringService {
     private CommandExecutor commandExecutor;
 
     public MonitoringInfo getMonitoringInfo(){
+        Map<String, String> diskMemory = getDiskMemory();
         return new MonitoringInfo()
-                .setUsedMemory(getFreeMemory());
+                .setUsedMemory(getUsedRamMemory())
+                .setUsedDiskMemory(diskMemory.get("Use%"))
+                .setFreeDiskMemory(diskMemory.get("Avail"));
     }
 
-    private String getFreeMemory(){
+    private String getUsedRamMemory(){
         Map<String, String> values = getMapOfValuesFrom(commandExecutor.exec(FREE_MEM));
         return (parseInt(values.get("total")) - parseInt(values.get("available")))*100/parseInt(values.get("total")) + "%";
+    }
+
+    private Map<String, String> getDiskMemory(){
+        return getMapOfValuesFrom(commandExecutor.exec(DISK_MEM));
     }
 
     private Map<String, String> getMapOfValuesFrom(String table){
