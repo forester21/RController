@@ -10,7 +10,7 @@ public class MainService {
     @Autowired
     private CommandExecutor executor;
 
-    public void reboot(){
+    public void reboot() {
         executor.exec("reboot");
     }
 }

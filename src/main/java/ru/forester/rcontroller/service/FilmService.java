@@ -10,7 +10,7 @@ import java.util.List;
 
 import static java.lang.String.format;
 import static java.util.stream.Collectors.toList;
-import static ru.forester.rcontroller.service.Constants.*;
+import static ru.forester.rcontroller.service.Commands.*;
 
 @Slf4j
 @Component

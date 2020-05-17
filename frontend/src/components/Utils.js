@@ -3,11 +3,35 @@ import BASE_URL from "../Const";
 
 class Utils extends Component {
 
+    state = {
+        monitoringInfo : {
+            usedMemory : null,
+            cpu : null,
+            freeDiskMemoryAbsolute: null,
+            freeDiskMemoryPercentage : null
+        }
+    };
+
     reboot = () => {
         if (window.confirm('REBOOT device?')){
             fetch(BASE_URL + "/reboot")
         }
     };
+
+    getMonitoringInfo = () => {
+            fetch(BASE_URL + "/" + "monitoring")
+                .then(response => response.json())
+                .then(info => this.setState(state => state.monitoringInfo = info))
+    };
+
+    getValueOrDefault(val){
+      return val == null ? 'N/A' : val
+    };
+
+    componentDidMount() {
+        this.getMonitoringInfo();
+        setInterval(this.getMonitoringInfo, 3000);
+    }
 
     render() {
         return (
@@ -19,7 +43,7 @@ class Utils extends Component {
                             <h1>RAM:</h1>
                         </div>
                         <div className="d-flex justify-content-center">
-                            <h1>25%</h1>
+                            <h1>{this.getValueOrDefault(this.state.monitoringInfo.usedMemory)}</h1>
                         </div>
                     </div>
                     <div className="col">
@@ -27,7 +51,7 @@ class Utils extends Component {
                             <h1>DISK:</h1>
                         </div>
                         <div className="d-flex justify-content-center">
-                            <h1>50%</h1>
+                            <h1>{this.getValueOrDefault(this.state.monitoringInfo.freeDiskMemoryPercentage)}</h1>
                         </div>
                     </div>
                 </div>
